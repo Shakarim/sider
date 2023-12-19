@@ -21,7 +21,7 @@ defmodule Sider.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:si, "~> 1.3"},
+      {:si, "~> 1.4"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end

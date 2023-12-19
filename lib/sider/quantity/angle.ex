@@ -3,6 +3,6 @@ defmodule Sider.Quantity.Angle do
 
   use SI.Quantity,
       name: "flat angle",
-      symbol: :"∠",
+      symbol: "∠",
       unit: SI.Unit.Mole
 end

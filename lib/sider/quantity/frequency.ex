@@ -3,6 +3,6 @@ defmodule Sider.Quantity.Frequency do
 
   use SI.Quantity,
       name: "frequency",
-      symbol: :f,
+      symbol: "f",
       unit: SI.Unit.Hertz
 end
