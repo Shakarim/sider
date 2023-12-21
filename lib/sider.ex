@@ -14,16 +14,16 @@ defmodule Sider do
   Module.register_attribute(__MODULE__, :units, accumulate: true)
 
   @basic_quantities [
-    {Angle.symbol(), Angle},
-    {Frequency.symbol(), Frequency}
+    {Angle.name_atom(), Angle},
+    {Frequency.name_atom(), Frequency}
   ]
 
   # === UNITS ===
-  @units {Angle.symbol(), Unit.generate_module_variations(Radian)}
+  @units {Angle.name_atom(), Unit.generate_module_variations(Radian)}
   Unit.compile_derivative_units(Radian)
   Unit.compile_variation_conversions(Radian)
 
-  @units {Frequency.symbol(), Unit.generate_module_variations(Hertz)}
+  @units {Frequency.name_atom(), Unit.generate_module_variations(Hertz)}
   Unit.compile_derivative_units(Hertz)
   Unit.compile_variation_conversions(Hertz)
 
