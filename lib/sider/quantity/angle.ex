@@ -2,7 +2,7 @@ defmodule Sider.Quantity.Angle do
   @moduledoc false
 
   use SI.Quantity,
-      name: "flat angle",
+      name: "angle",
       symbol: "∠",
-      unit: SI.Unit.Mole
+      unit: SI.Unit.Radian
 end
