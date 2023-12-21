@@ -4,5 +4,5 @@ defmodule Sider.Quantity.Angle do
   use SI.Quantity,
       name: "angle",
       symbol: "∠",
-      unit: SI.Unit.Radian
+      unit: Sider.Unit.Radian
 end
