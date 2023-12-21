@@ -4,9 +4,9 @@ defmodule Sider do
   """
 
   alias Sider.Quantity
-  alias Quantity.{Angle, Frequency, SolidAngle}
+  alias Quantity.{Angle, Frequency, SolidAngle, Force}
 
-  alias Sider.Unit.{Radian, Hertz, Steradian}
+  alias Sider.Unit.{Radian, Hertz, Steradian, Newton}
 
   alias SI.Unit
   require SI.Unit
@@ -16,7 +16,8 @@ defmodule Sider do
   @basic_quantities [
     {Angle.name_atom(), Angle},
     {Frequency.name_atom(), Frequency},
-    {SolidAngle.name_atom(), SolidAngle}
+    {SolidAngle.name_atom(), SolidAngle},
+    {Force.name_atom(), Force}
   ]
 
   # === UNITS ===
@@ -31,6 +32,10 @@ defmodule Sider do
   @units {SolidAngle.name_atom(), Unit.generate_module_variations(Steradian)}
   Unit.compile_derivative_units(Steradian)
   Unit.compile_variation_conversions(Steradian)
+
+  @units {Force.name_atom(), Unit.generate_module_variations(Newton)}
+  Unit.compile_derivative_units(Newton)
+  Unit.compile_variation_conversions(Newton)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
