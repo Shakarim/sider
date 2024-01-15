@@ -3,14 +3,13 @@ defmodule Sider do
   Documentation for `Sider`.
   """
 
-  alias Sider.Quantity
-  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage,
-                  ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux,
-                  MagneticFluxDensity, ElectricalInductance, Temperature, LuminousFlux, Illuminance, Radioactivity,
-                  AbsorbedDose}
+  alias Sider.Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage,
+                        ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux,
+                        MagneticFluxDensity, ElectricalInductance, Temperature, LuminousFlux, Illuminance,
+                        Radioactivity, AbsorbedDose, EquivalentDose}
 
   alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber,
-                    Tesla, Henry, DegreeCelsius, Lumen, Lux, Becquerel, Gray}
+                    Tesla, Henry, DegreeCelsius, Lumen, Lux, Becquerel, Gray, Sievert}
 
   alias SI.Unit
   require SI.Unit
@@ -37,7 +36,8 @@ defmodule Sider do
     {LuminousFlux.name_atom(), LuminousFlux},
     {Illuminance.name_atom(), Illuminance},
     {Radioactivity.name_atom(), Radioactivity},
-    {AbsorbedDose.name_atom(), AbsorbedDose}
+    {AbsorbedDose.name_atom(), AbsorbedDose},
+    {EquivalentDose.name_atom(), EquivalentDose}
   ]
 
   # === UNITS ===
@@ -120,6 +120,10 @@ defmodule Sider do
   @units {AbsorbedDose.name_atom(), Unit.generate_module_variations(Gray)}
   Unit.compile_derivative_units(Gray)
   Unit.compile_variation_conversions(Gray)
+
+  @units {EquivalentDose.name_atom(), Unit.generate_module_variations(Sievert)}
+  Unit.compile_derivative_units(Sievert)
+  Unit.compile_variation_conversions(Sievert)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
