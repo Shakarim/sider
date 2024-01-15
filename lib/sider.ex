@@ -6,10 +6,10 @@ defmodule Sider do
   alias Sider.Quantity
   alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage,
                   ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux,
-                  MagneticFluxDensity, ElectricalInductance, Temperature, LuminousFlux, Illuminance}
+                  MagneticFluxDensity, ElectricalInductance, Temperature, LuminousFlux, Illuminance, Radioactivity}
 
   alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber,
-                    Tesla, Henry, DegreeCelsius, Lumen, Lux}
+                    Tesla, Henry, DegreeCelsius, Lumen, Lux, Becquerel}
 
   alias SI.Unit
   require SI.Unit
@@ -34,7 +34,8 @@ defmodule Sider do
     {ElectricalInductance.name_atom(), ElectricalInductance},
     {Temperature.name_atom(), Temperature},
     {LuminousFlux.name_atom(), LuminousFlux},
-    {Illuminance.name_atom(), Illuminance}
+    {Illuminance.name_atom(), Illuminance},
+    {Radioactivity.name_atom(), Radioactivity}
   ]
 
   # === UNITS ===
@@ -109,6 +110,10 @@ defmodule Sider do
   @units {Illuminance.name_atom(), Unit.generate_module_variations(Lux)}
   Unit.compile_derivative_units(Lux)
   Unit.compile_variation_conversions(Lux)
+
+  @units {Radioactivity.name_atom(), Unit.generate_module_variations(Becquerel)}
+  Unit.compile_derivative_units(Becquerel)
+  Unit.compile_variation_conversions(Becquerel)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
