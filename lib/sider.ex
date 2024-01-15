@@ -4,9 +4,9 @@ defmodule Sider do
   """
 
   alias Sider.Quantity
-  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux, MagneticFluxDensity}
+  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux, MagneticFluxDensity, ElectricalInductance}
 
-  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber, Tesla}
+  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber, Tesla, Henry}
 
   alias SI.Unit
   require SI.Unit
@@ -27,7 +27,8 @@ defmodule Sider do
     {ElectricalResistance.name_atom(), Ohm},
     {ElectricalConductance.name_atom(), Siemens},
     {MagneticFlux.name_atom(), Weber},
-    {MagneticFluxDensity.name_atom(), Tesla}
+    {MagneticFluxDensity.name_atom(), Tesla},
+    {ElectricalInductance.name_atom(), Henry}
   ]
 
   # === UNITS ===
@@ -86,6 +87,10 @@ defmodule Sider do
   @units {MagneticFluxDensity.name_atom(), Unit.generate_module_variations(Tesla)}
   Unit.compile_derivative_units(Tesla)
   Unit.compile_variation_conversions(Tesla)
+
+  @units {ElectricalInductance.name_atom(), Unit.generate_module_variations(Henry)}
+  Unit.compile_derivative_units(Henry)
+  Unit.compile_variation_conversions(Henry)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
