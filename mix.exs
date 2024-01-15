@@ -4,7 +4,7 @@ defmodule Sider.MixProject do
   def project do
     [
       app: :sider,
-      version: "0.1.0",
+      version: "1.0.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -21,7 +21,7 @@ defmodule Sider.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:si, "~> 1.4"},
+      {:si, "~> 1.5.1"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
