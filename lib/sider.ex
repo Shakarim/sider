@@ -4,9 +4,12 @@ defmodule Sider do
   """
 
   alias Sider.Quantity
-  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux, MagneticFluxDensity, ElectricalInductance, Temperature}
+  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage,
+                  ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux,
+                  MagneticFluxDensity, ElectricalInductance, Temperature, LuminousFlux}
 
-  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber, Tesla, Henry, DegreeCelsius}
+  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber,
+                    Tesla, Henry, DegreeCelsius, Lumen}
 
   alias SI.Unit
   require SI.Unit
@@ -29,7 +32,8 @@ defmodule Sider do
     {MagneticFlux.name_atom(), MagneticFlux},
     {MagneticFluxDensity.name_atom(), MagneticFluxDensity},
     {ElectricalInductance.name_atom(), ElectricalInductance},
-    {Temperature.name_atom(), Temperature}
+    {Temperature.name_atom(), Temperature},
+    {LuminousFlux.name_atom(), LuminousFlux}
   ]
 
   # === UNITS ===
@@ -96,6 +100,10 @@ defmodule Sider do
   @units {Temperature.name_atom(), Unit.generate_module_variations(DegreeCelsius)}
   Unit.compile_derivative_units(DegreeCelsius)
   Unit.compile_variation_conversions(DegreeCelsius)
+
+  @units {LuminousFlux.name_atom(), Unit.generate_module_variations(Lumen)}
+  Unit.compile_derivative_units(Lumen)
+  Unit.compile_variation_conversions(Lumen)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
