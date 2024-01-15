@@ -6,10 +6,10 @@ defmodule Sider do
   alias Sider.Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage,
                         ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux,
                         MagneticFluxDensity, ElectricalInductance, Temperature, LuminousFlux, Illuminance,
-                        Radioactivity, AbsorbedDose, EquivalentDose}
+                        Radioactivity, AbsorbedDose, EquivalentDose, Catalysis}
 
   alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber,
-                    Tesla, Henry, DegreeCelsius, Lumen, Lux, Becquerel, Gray, Sievert}
+                    Tesla, Henry, DegreeCelsius, Lumen, Lux, Becquerel, Gray, Sievert, Katal}
 
   alias SI.Unit
   require SI.Unit
@@ -37,7 +37,8 @@ defmodule Sider do
     {Illuminance.name_atom(), Illuminance},
     {Radioactivity.name_atom(), Radioactivity},
     {AbsorbedDose.name_atom(), AbsorbedDose},
-    {EquivalentDose.name_atom(), EquivalentDose}
+    {EquivalentDose.name_atom(), EquivalentDose},
+    {Catalysis.name_atom(), Catalysis}
   ]
 
   # === UNITS ===
@@ -124,6 +125,10 @@ defmodule Sider do
   @units {EquivalentDose.name_atom(), Unit.generate_module_variations(Sievert)}
   Unit.compile_derivative_units(Sievert)
   Unit.compile_variation_conversions(Sievert)
+
+  @units {Catalysis.name_atom(), Unit.generate_module_variations(Katal)}
+  Unit.compile_derivative_units(Katal)
+  Unit.compile_variation_conversions(Katal)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
