@@ -4,5 +4,5 @@ defmodule Sider.Quantity.Power do
   use SI.Quantity,
       name: "power",
       symbol: "P",
-      unit: SI.Unit.Watt
+      unit: Sider.Unit.Watt
 end

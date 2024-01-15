@@ -4,5 +4,5 @@ defmodule Sider.Quantity.Radioactivity do
   use SI.Quantity,
       name: "radioactivity",
       symbol: "λ",
-      unit: SI.Unit.Becquerel
+      unit: Sider.Unit.Becquerel
 end

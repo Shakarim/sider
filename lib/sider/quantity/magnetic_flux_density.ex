@@ -4,5 +4,5 @@ defmodule Sider.Quantity.MagneticFluxDensity do
   use SI.Quantity,
       name: "magnetic flux density",
       symbol: "B",
-      unit: SI.Unit.Tesla
+      unit: Sider.Unit.Tesla
 end
