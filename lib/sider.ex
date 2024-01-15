@@ -4,9 +4,9 @@ defmodule Sider do
   """
 
   alias Sider.Quantity
-  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance}
+  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux}
 
-  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens}
+  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber}
 
   alias SI.Unit
   require SI.Unit
@@ -76,6 +76,10 @@ defmodule Sider do
   @units {ElectricalConductance.name_atom(), Unit.generate_module_variations(Siemens)}
   Unit.compile_derivative_units(Siemens)
   Unit.compile_variation_conversions(Siemens)
+
+  @units {MagneticFlux.name_atom(), Unit.generate_module_variations(Weber)}
+  Unit.compile_derivative_units(Weber)
+  Unit.compile_variation_conversions(Weber)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
