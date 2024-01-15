@@ -4,9 +4,9 @@ defmodule Sider do
   """
 
   alias Sider.Quantity
-  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux, MagneticFluxDensity, ElectricalInductance}
+  alias Quantity.{Angle, Frequency, SolidAngle, Force, Pressure, Energy, Power, ElectricCharge, Voltage, ElectricalCapacitance, ElectricalResistance, ElectricalConductance, MagneticFlux, MagneticFluxDensity, ElectricalInductance, Temperature}
 
-  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber, Tesla, Henry}
+  alias Sider.Unit.{Radian, Hertz, Steradian, Newton, Pascal, Joule, Watt, Coulomb, Volt, Farad, Ohm, Siemens, Weber, Tesla, Henry, DegreeCelsius}
 
   alias SI.Unit
   require SI.Unit
@@ -23,12 +23,13 @@ defmodule Sider do
     {Power.name_atom(), Power},
     {ElectricCharge.name_atom(), ElectricCharge},
     {Voltage.name_atom(), Voltage},
-    {ElectricalCapacitance.name_atom(), Farad},
-    {ElectricalResistance.name_atom(), Ohm},
-    {ElectricalConductance.name_atom(), Siemens},
-    {MagneticFlux.name_atom(), Weber},
-    {MagneticFluxDensity.name_atom(), Tesla},
-    {ElectricalInductance.name_atom(), Henry}
+    {ElectricalCapacitance.name_atom(), ElectricalCapacitance},
+    {ElectricalResistance.name_atom(), ElectricalResistance},
+    {ElectricalConductance.name_atom(), ElectricalConductance},
+    {MagneticFlux.name_atom(), MagneticFlux},
+    {MagneticFluxDensity.name_atom(), MagneticFluxDensity},
+    {ElectricalInductance.name_atom(), ElectricalInductance},
+    {Temperature.name_atom(), Temperature}
   ]
 
   # === UNITS ===
@@ -91,6 +92,10 @@ defmodule Sider do
   @units {ElectricalInductance.name_atom(), Unit.generate_module_variations(Henry)}
   Unit.compile_derivative_units(Henry)
   Unit.compile_variation_conversions(Henry)
+
+  @units {Temperature.name_atom(), Unit.generate_module_variations(DegreeCelsius)}
+  Unit.compile_derivative_units(DegreeCelsius)
+  Unit.compile_variation_conversions(DegreeCelsius)
 
   def quantities(), do: @basic_quantities
   def units(), do: @units
